@@ -29,4 +29,4 @@ Your password will be generated in input into the box. Highlight and use Ctrl+C 
 
 ## License
 
-Please refer to the [LICENSE](/03-Challenge/LICENSE) within the repository.
+Please refer to the [LICENSE](/LICENSE) within the repository.
