@@ -10,6 +10,9 @@ function generatePassword() {
   
   // if user presses cancel, ends function
   if (!passwordLength) {
+    window.alert("Error: No value input. Try again.");
+    var password = "Try Again";
+    return password;
     return;
 
   // WHEN asked for character types to include in the password
@@ -33,6 +36,8 @@ function generatePassword() {
   } else {
     window.alert("Error: Password length must be 8-128 characters. Try again.");
     // generatePassword();
+    password = "Try Again";
+    return password;   
     return;
   }
   
