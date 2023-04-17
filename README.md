@@ -24,7 +24,7 @@ Your password will be generated in input into the box. Highlight and use Ctrl+C 
 
 ## Credits
 
-* Password `for` loop: https://stackoverflow.com/questions/62627469/random-password-generator-with-prompts
+* Password `for` loop: https://stackoverflow.com/questions/1497481/javascript-password-generator
 * A variety of topics and code were utilized and adapted from UCSD-VIRT-FSF-PT-03-2023-U-LOLC/03-JavaScript/01-Activities
 
 ## License
