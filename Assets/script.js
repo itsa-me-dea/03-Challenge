@@ -6,17 +6,17 @@
 
 function generatePassword() {
   // initial prompt for # of characterd
-  var userPrompt = window.prompt("How many characters would you like your password to contain?");
+  var passwordLength = window.prompt("How many characters would you like your password to contain?");
   
   // if user presses cancel, ends function
-  if (!userPrompt) {
+  if (!passwordLength) {
     return;
 
   // WHEN asked for character types to include in the password
   // THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
   // WHEN I answer each prompt
   // THEN my input should be validated and at least one character type should be selected
-  } else if (userPrompt > 8 && userPrompt < 128) {
+  } else if (passwordLength > 8 && passwordLength < 128) {
 
     // ------------ ask and assign lowercase characters ------------ 
     var lowercaseSelect = window.confirm("Click OK to confirm including lowercase characters.");
@@ -96,12 +96,13 @@ function generatePassword() {
   
   // WHEN all prompts are answered
   // THEN a password is generated that matches the selected criteria
+
   
   // WHEN the password is generated
   // THEN the password is either displayed in an alert or written to the page
+
+  
 }
-
-
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
