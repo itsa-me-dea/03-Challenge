@@ -40,8 +40,9 @@ function generatePassword() {
     lowercase: 'abcdefghijklmnopqrstuvwxyz',
     uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
     numeric: '0123456789',
-    special: ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+    special: ' `~!@#$%^&*()_-+=[]{}\'|;:",.<>?/'
   };
+   
 
   // WHEN I answer each prompt
   // THEN my input should be validated and at least one character type should be selected
