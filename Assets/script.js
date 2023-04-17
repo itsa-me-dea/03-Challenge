@@ -14,93 +14,132 @@ function generatePassword() {
 
   // WHEN asked for character types to include in the password
   // THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-  // WHEN I answer each prompt
-  // THEN my input should be validated and at least one character type should be selected
-  } else if (passwordLength > 8 && passwordLength < 128) {
-
-    // ------------ ask and assign lowercase characters ------------ 
+} else if (passwordLength > 8 && passwordLength < 128) {
+    // ask to assign lowercase characters  
     var lowercaseSelect = window.confirm("Click OK to confirm including lowercase characters.");
-      if (lowercaseSelect) {
-        // The following is adapted from https://www.coderrocketfuel.com/article/generate-a-random-letter-from-the-alphabet-using-javascript
-        var lowercaseCharList = "abcdefghijklmnopqrstuvwxyz"
-        var lowercaseCharChoice = lowercaseCharList[Math.floor(Math.random() * lowercaseCharList.length)];
 
-        console.log(lowercaseCharList);
-        console.log(lowercaseCharChoice);
-
-      } else {
-        lowercaseCharList = undefined;
-
-        console.log(lowercaseCharList);
-        console.log(typeof lowercaseCharList);
-      }
-
-    // ------------ ask and assign uppercase characters ------------ 
+    // ask to assign uppercase characters  
     var uppercaseSelect = window.confirm("Click OK to confirm including uppercase characters.");
-      if (uppercaseSelect) {
-        // The following is adapted from https://www.coderrocketfuel.com/article/generate-a-random-letter-from-the-alphabet-using-javascript
-        var uppercaseCharList = lowercaseCharList.toUpperCase();
-        var uppercaseCharChoice = uppercaseCharList[Math.floor(Math.random() * uppercaseCharList.length)];
 
-        console.log(uppercaseCharList);
-        console.log(uppercaseCharChoice);
-
-      } else {
-        uppercaseCharList = undefined;
-
-        console.log(uppercaseCharList);
-        console.log(typeof uppercaseCharList);
-      }
-
-    // ------------ ask and assign numeric characters ------------ 
+    // ask to assign numeric characters  
     var numericSelect = window.confirm("Click OK to confirm including numeric characters.");
-      if (numericSelect) {
-        // The following is adapted from https://www.coderrocketfuel.com/article/generate-a-random-letter-from-the-alphabet-using-javascript
-        var numericCharList = "0123456789";
-        var numericCharChoice = numericCharList[Math.floor(Math.random() * numericCharList.length)];
-
-        console.log(numericCharList);
-        console.log(numericCharChoice);        
-
-      } else {
-        numericCharList = undefined;
-
-        console.log(numericCharList);
-        console.log(typeof numericCharList);
-      }
     
-    // ------------ ask and assign special characters ------------ 
+    // ask to assign special characters 
     var specialSelect = window.confirm("Click OK to confirm including special characters.");
-      if (specialSelect) {
-        // The following is adapted from https://www.coderrocketfuel.com/article/generate-a-random-letter-from-the-alphabet-using-javascript
-        var specialCharList = "!@#$%^&*()_+~`-=[]\{}|;:'<>?,./";
-        var specialCharChoice = specialCharList[Math.floor(Math.random() * specialCharList.length)];
         
-        console.log(specialCharList);
-        console.log(specialCharChoice);  
-
-      } else {
-        specialCharList = undefined;
-
-        console.log(specialCharList);
-        console.log(typeof specialCharList);
-      }
-    
-  // WHEN prompted for the length of the password
-  // THEN I choose a length of at least 8 characters and no more than 128 characters
-  // creates an alert if char limit is outside range and restarts 
+    // WHEN prompted for the length of the password
+    // THEN I choose a length of at least 8 characters and no more than 128 characters
+    // creates an alert if char limit is outside range and restarts 
   } else {
     window.alert("Error: Password length must be greater than 8 characters and less than 128 characters. Try again.");
     generatePassword();
   }
   
+  // assign character variables and methods
+  var charOptions = {
+    lowercase: 'abcdefghijklmnopqrstuvwxyz',
+    uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    numeric: '0123456789',
+    special: ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+  };
+
+  // WHEN I answer each prompt
+  // THEN my input should be validated and at least one character type should be selected
+  // ----------------- all seclected -----------------
+  if (lowercaseSelect && uppercaseSelect && numericSelect && specialSelect) {
+    var charSelection = charOptions.lowercase + charOptions.uppercase + charOptions.numeric + charOptions.special;
+
+    console.log("Your choice of characters are " + charSelection);
+  
+    // ----------------- 3 selected -----------------
+  } else if (lowercaseSelect && uppercaseSelect && numericSelect && !specialSelect) {
+    var charSelection = charOptions.lowercase + charOptions.uppercase + charOptions.numeric;
+
+    console.log("Your choice of characters are " + charSelection);
+
+  } else if (lowercaseSelect && uppercaseSelect && !numericSelect && specialSelect) {
+    var charSelection = charOptions.lowercase + charOptions.uppercase + charOptions.special;
+
+    console.log("Your choice of characters are " + charSelection);
+
+  } else if (lowercaseSelect && !uppercaseSelect && numericSelect && specialSelect) {
+    var charSelection = charOptions.lowercase + charOptions.numeric + charOptions.special;
+
+    console.log("Your choice of characters are " + charSelection);
+
+  } else if (!lowercaseSelect && uppercaseSelect && numericSelect && specialSelect) {
+    var charSelection = charOptions.uppercase + charOptions.numeric + charOptions.special;
+
+    console.log("Your choice of characters are " + charSelection);
+  
+    // ----------------- 2 selected -----------------
+  } else if (!lowercaseSelect && !uppercaseSelect && numericSelect && specialSelect) {
+    var charSelection = charOptions.numeric + charOptions.special;
+
+    console.log("Your choice of characters are " + charSelection);
+
+  } else if (!lowercaseSelect && uppercaseSelect && !numericSelect && specialSelect) {
+    var charSelection = charOptions.uppercase + charOptions.special;
+
+    console.log("Your choice of characters are " + charSelection);
+
+  } else if (!lowercaseSelect && uppercaseSelect && numericSelect && !specialSelect) {
+    var charSelection = charOptions.uppercase + charOptions.numeric;
+
+    console.log("Your choice of characters are " + charSelection);
+
+  } else if (lowercaseSelect && !uppercaseSelect && !numericSelect && specialSelect) {
+    var charSelection = charOptions.lowercase + charOptions.special;
+
+    console.log("Your choice of characters are " + charSelection);
+
+  } else if (lowercaseSelect && !uppercaseSelect && numericSelect && !specialSelect) {
+    var charSelection = charOptions.lowercase + charOptions.numeric;
+
+    console.log("Your choice of characters are " + charSelection);
+  
+  } else if (lowercaseSelect && uppercaseSelect && !numericSelect && !specialSelect) {
+    var charSelection = charOptions.lowercase + charOptions.uppercase;
+
+    console.log("Your choice of characters are " + charSelection);
+
+    // ----------------- 1 selected -----------------
+  } else if (lowercaseSelect && !uppercaseSelect && !numericSelect && !specialSelect) {
+    var charSelection = charOptions.lowercase;
+
+    console.log("Your choice of characters are " + charSelection);
+
+  } else if (!lowercaseSelect && uppercaseSelect && !numericSelect && !specialSelect) {
+    var charSelection = charOptions.uppercase;
+
+    console.log("Your choice of characters are " + charSelection);
+
+  } else if (!lowercaseSelect && !uppercaseSelect && numericSelect && !specialSelect) {
+    var charSelection = charOptions.numeric;
+
+    console.log("Your choice of characters are " + charSelection);
+
+
+  } else if (!lowercaseSelect && !uppercaseSelect && !numericSelect && specialSelect) {
+    var charSelection = charOptions.special;
+
+    console.log("Your choice of characters are " + charSelection);
+
+  } 
+  
   // WHEN all prompts are answered
   // THEN a password is generated that matches the selected criteria
-
+  // The following was adapted from https://stackoverflow.com/questions/62627469/random-password-generator-with-prompts
+  var password = "";
+  for (var i = 0; i < passwordLength; i++) {
+    password += charSelection.charAt(Math.floor(Math.random() * charSelection.length));
+  }
   
   // WHEN the password is generated
   // THEN the password is either displayed in an alert or written to the page
-
+  // The following was adapted from https://stackoverflow.com/questions/62627469/random-password-generator-with-prompts
+  console.log("Your newly generated password is " + password);
+  return password;
   
 }
 
