@@ -6,7 +6,7 @@
 
 function generatePassword() {
   // initial prompt for # of characterd
-  var passwordLength = window.prompt("How many characters would you like your password to contain?");
+  var passwordLength = window.prompt("How many characters would you like your password to contain? (Range: 8-128 characters).");
   
   // if user presses cancel, ends function
   if (!passwordLength) {
@@ -31,8 +31,9 @@ function generatePassword() {
     // THEN I choose a length of at least 8 characters and no more than 128 characters
     // creates an alert if char limit is outside range and restarts 
   } else {
-    window.alert("Error: Password length must be greater than 8 characters and less than 128 characters. Try again.");
-    generatePassword();
+    window.alert("Error: Password length must be 8-128 characters. Try again.");
+    // generatePassword();
+    return;
   }
   
   // assign character variables and methods
