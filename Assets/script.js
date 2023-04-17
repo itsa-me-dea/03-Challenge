@@ -136,7 +136,7 @@ function generatePassword() {
   
   // WHEN all prompts are answered
   // THEN a password is generated that matches the selected criteria
-  // The following was adapted from https://stackoverflow.com/questions/62627469/random-password-generator-with-prompts
+  // The following was adapted from https://stackoverflow.com/questions/1497481/javascript-password-generator
   var password = "";
   for (var i = 0; i < passwordLength; i++) {
     password += charSelection.charAt(Math.floor(Math.random() * charSelection.length));
@@ -144,7 +144,7 @@ function generatePassword() {
   
   // WHEN the password is generated
   // THEN the password is either displayed in an alert or written to the page
-  // The following was adapted from https://stackoverflow.com/questions/62627469/random-password-generator-with-prompts
+  // The following was adapted from https://stackoverflow.com/questions/1497481/javascript-password-generator
   console.log("Your newly generated password is " + password);
   return password;
   
