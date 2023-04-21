@@ -10,7 +10,7 @@ I learned more about the applications and use of JavaScript. I heavily used `var
 
 ## Installation
 
-No installation is required. See the following link to access the website: https://itsa-me-dea.github.io/03-Challenge/
+No installation is required. See the following link to access the website: https://itsa-me-dea.github.io/03-Challenge-PasswordGenerator/
 
 ## Usage
 
